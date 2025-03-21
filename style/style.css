@@ -1,0 +1,90 @@
+:root {
+    --dark-background-color: #333;
+    --light-background-color: #f5f5f5;
+    --dark-foreground-color: #000;
+    --light-foreground-color: #fff;
+    --grey-foreground-color: #ccc;
+    --accent-color: #6d0509;
+    --general-padding: 2em;
+    --general-margin: 1em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--dark-foreground-color);
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: baseline;
+}
+
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+div#container {
+    display: flex;
+    flex-direction: column;
+    margin: var(--general-margin);
+}
+
+header {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+header h1 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+nav {
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-background-color);
+    border-top: 1px solid var(--dark-foreground-color);
+    border-bottom: 1px solid var(--dark-foreground-color);
+    height: calc(var(--general-padding)*2 + var(--general-margin)*2);
+}
+
+nav li {
+    display: inline-block;
+    margin: var(--general-margin);
+}
+
+nav li a{
+    background-color: var(--dark-background-color);
+    color: var(--light-foreground-color);
+    padding: var(--general-padding);
+    border-radius: 1em;
+}
+
+nav li a:hover {
+    color: var(--dark-foreground-color);
+    background-color: var(--grey-foreground-color);
+}
+
+footer {
+    background-color: var(--dark-background-color);
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    padding: var(--general-padding);
+    color: var(--light-foreground-color);
+}
