@@ -28,6 +28,7 @@ html{
 
 header {
     display: inherit;
+    width: 100%;
     justify-content: center;
     align-items: center;
     height: 150px;
@@ -43,6 +44,7 @@ header h1 {
 
 a {
     text-decoration: none;
+    max-width: 30ch;
 }
 
 a:hover {
@@ -50,6 +52,7 @@ a:hover {
 }
 
 nav {
+    width: calc(100vw - 2*var(--general-margin));
     display: inherit;
     align-items: center;
     justify-content: center;
@@ -76,83 +79,93 @@ nav li a:hover {
     background-color: var(--dark-background-color);
 }
 
+h3#Katsottavissa {
+    color: var(--light-foreground-color);
+    margin-top: calc(2 * var(--general-margin));
+}
+
+ul#lista {
+    align-items: center;
+    justify-items: center;
+    padding: var(--general-padding);
+}
+
+ul#lista li {
+    color: var(--light-foreground-color);
+    padding: var(--general-padding) var(--general-padding) calc(var(--general-padding)*3) calc(var(--general-padding)*5);
+    /* reset styles (optional): */
+    list-style: none;
+    margin: 0;
+    
+}
+
 div#container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: calc(var(--general-margin) * 1);
     background-color: var(--grey-foreground-color);
 }
 
 div#content {
-    display: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding-bottom: 10em;
+    margin: var(--general-margin);
+    width: 100%;
+    
+    
+    
+    
 }
 
-div#content section {
-    width: 100vw;
-    display: inherit;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: var(--general-margin);
-    justify-content: center;
+div#content h1 {
+    flex: 100%;
+    margin: var(--general-margin);
+}
+
+div#content a {
+    color: var(--light-foreground-color);
+    font-size: x-large;
+    text-align: center;
+}
+
+div#content a:hover{
+    color: var(--accent-color);
 }
 
 button {
-    flex: 100%;
-    max-width: 75vw;
     margin: var(--general-margin);
-    padding: var(--general-padding);
+    padding: 1em;
+    flex: 100%;
+    width: 20vw;
     border: 5px solid var(--dark-background-color);
     border-radius: 5em;
-}
-
-
-button h3 {
-    margin: var(--general-margin);
-    text-align: center;
-    font-size: 5em;
-    color: var(--light-foreground-color);
-    -webkit-text-stroke: 2px var(--dark-foreground-color);
-}
-
-button p {
-    margin: var(--general-margin);
-    font-size: 2em;
-    line-height: 1.5;
-    text-align: center;
+    background-color: var(--light-background-color);
     color: var(--light-foreground-color);
 }
 
 button:hover {
-    border: 5px solid var(--accent-color);
-}
-
-button:hover h3{
-    -webkit-text-stroke: 2px var(--accent-color);
-}
-
-button:hover p {
+    border-color: var(--accent-color);
     color: var(--accent-color);
+    background-color: var(--grey-foreground-color);
 }
 
-button#Katsottavaa {
-    background: linear-gradient(rgba(200, 200, 200, 1), rgba(127, 127, 127, 0.2) 50%, rgba(0, 0, 0, 1)), url(https://image.tmdb.org/t/p/original/qJzloL8O9YHhiWBrhlPfKAtZu2I.jpg);
-    background-size: cover;
-}
-
-.frontpage {
-    border-radius: 10px;
-    display: inline-block;
-    position:relative;
-    overflow: hidden;
-}
-
-.frontpage img {
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
     margin: var(--general-margin);
-    height: fit-content;
-    object-fit: cover;
-    object-position: center;
-    border-radius: var(--general-padding);
+}
+
+img {
+    min-height: 600px;
+    max-height: 600px;
+    margin: var(--general-margin);
 }
 
 footer {
@@ -167,17 +180,15 @@ footer {
 }
 
 footer p {
+    align-content: center;
+    text-align: center;
     padding: var(--general-padding);
     color: var(--light-foreground-color);
 }
 
 @media only screen and (max-width: 1200px) {
-    button h3 {
-        font-size: 3em;
-    }
-
-    button p {
-        font-size: 1.5em;
+    button {
+        width: 40vw;
     }
 }
 
@@ -200,7 +211,9 @@ footer p {
     }
 
     button {
-        max-width: 90vw;
+        width: 45vw;
+        margin: 0;
+        margin-left: var(--general-margin);
     }
 
     footer {

@@ -4,49 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
-    <title>Document</title>
+    <title>Teron Harjoituskokoelma</title>
 </head>
 <body>
     <div id="container">
         <header>
-            <h1>Jokin paikallinen bändi</h1>
+            <h1>Teron Harjoituskokoelma</h1>
         </header>
         <nav>
             <ul>
-                <li><a href="#">Etusivu</a></li>
-                <li><a href="#">Tuotokset</a></li>
-                <li><a href="#">Keikat</a></li>
-                <li><a href="#">Historiikki</a></li>
+                <li><a href="/index.html">Etusivu</a></li>
+                <li><a href="/movie.html">Katsottavaa</a></li>
+                <li><a href="#">Etäisyysvisa</a></li>
+                <li><a href="#">PDF-Yhdistin</a></li>
             </ul>
         </nav>
         <div id="content">
             <section id="main">
-                <article>
+                <button class="frontpage" id="Katsottavaa" onclick="location.href='/movie.html';">
                     <div>
-                        <h3>Tuotokset</h3>
-                        <img src="" alt="">
-                        <p>Tutustu yhtyeen tuotantoon.</p>
+                        
+                        <h3>Mitä tänään katsottaisiin?</h3>
+                        <p>Löydä satunnaista katsottavaa...</p>
                     </div>
-                </article>
-                <article>
+                </button>
+                <button class="frontpage" id="Etäisyysvisa">
                     <div>
-                        <h3>Keikat</h3>
+                        <h3>Etäisyysvisa</h3>
                         <img src="" alt="">
-                        <p>Yhtye toisinaan myös esiintyy. Milloin, missä... ja miksi?</p>
+                        <p>Tiedätkö mikä paikka on sinua lähempänä?</p>
                     </div>
-                </article>
-                <article>
+                </button>
+                <button class="frontpage" id="Historiikki">
                     <div>
-                        <h3>Historiikki</h3>
+                        <h3>PDF-Yhdistin</h3>
                         <img src="" alt="">
-                        <p>Yhtyeen historia läpi vuosien. Miten tänne päädyttiin?</p>
+                        <p>Haluatko yhdistää PDF-tiedostoja?</p>
                     </div>
-                </article>
+                </button>
             </section>
         </div>
         <footer>
             <p>© Tero Asilainen</p>
-          </footer>
+        </footer>
     </div>
 </body>
 </html>
