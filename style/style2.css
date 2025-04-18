@@ -44,7 +44,7 @@ header h1 {
 
 a {
     text-decoration: none;
-    max-width: 30ch;
+    max-width: 50ch;
 }
 
 a:hover {
@@ -88,11 +88,13 @@ ul#lista {
     align-items: center;
     justify-items: center;
     padding: var(--general-padding);
+    margin: var(--general-margin);
 }
 
 ul#lista li {
     color: var(--light-foreground-color);
-    padding: var(--general-padding) var(--general-padding) calc(var(--general-padding)*3) calc(var(--general-padding)*5);
+    font-size: large;
+    padding: var(--general-padding) var(--general-padding) calc(var(--general-padding)*2) calc(var(--general-padding)*4);
     /* reset styles (optional): */
     list-style: none;
     margin: 0;
@@ -113,10 +115,10 @@ div#content {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 10em;
+    padding-bottom: 15em;
     margin: var(--general-margin);
     width: 100%;
-    
+    background: linear-gradient(rgba(255, 170, 0, 0.9), rgba(127, 127, 127, 0.2) 50%, rgba(0, 0, 0, 1));
     
     
     
@@ -199,6 +201,7 @@ footer p {
 
     nav {
         height: calc((var(--general-padding)*2 + var(--general-margin)*2) * 2);
+        width: 100vw;
     }
 
     nav li {
@@ -212,8 +215,10 @@ footer p {
 
     button {
         width: 45vw;
+        font-size: x-small;
         margin: 0;
-        margin-left: var(--general-margin);
+        margin-left: calc( 2 * var(--general-margin));
+        
     }
 
     footer {

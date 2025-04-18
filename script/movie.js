@@ -68,9 +68,11 @@ function getSomethingToWatch(programType) {
             }
             document.querySelector('#title').href = "https://www.themoviedb.org/" + programType + "/" + elokuva["id"];
             if (elokuva["poster_path"]!=null){
-            document.querySelector('img').src="https://image.tmdb.org/t/p/w500" + elokuva["poster_path"];
+                document.querySelector('img').src="https://image.tmdb.org/t/p/w500" + elokuva["poster_path"];
+                document.querySelector('#imagelink').href = "https://www.themoviedb.org/" + programType + "/" + elokuva["id"];
             } else {
                 document.querySelector('img').src="./images/kansikuva.png";
+                document.querySelector('#imagelink').href = "https://www.themoviedb.org/" + programType + "/" + elokuva["id"];
             }
             document.querySelector('img').style.border = "2px solid var(--light-foreground-color)"
             document.querySelector('div#content').style.background = "linear-gradient(rgba(255, 170, 0, 0.9), rgba(127, 127, 127, 0.2) 50%, rgba(0, 0, 0, 1)), url(https://image.tmdb.org/t/p/original" + elokuva['backdrop_path']+")"
