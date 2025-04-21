@@ -154,6 +154,7 @@ button:hover {
     border-color: var(--accent-color);
     color: var(--accent-color);
     background-color: var(--grey-foreground-color);
+    cursor: pointer;
 }
 
 article {

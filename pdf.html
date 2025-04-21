@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/stylepdf.css">
+    <title>PDF-Yhdistin - Teron Harjoituskokoelma</title>
+    <script src='https://cdn.jsdelivr.net/npm/pdf-lib/dist/pdf-lib.min.js'></script>
+
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>Teron Harjoituskokoelma</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Etusivu</a></li>
+                <li><a href="/movie.html">Katsottavaa</a></li>
+                <li><a href="#">Etäisyysvisa</a></li>
+                <li><a href="/pdf.html">PDF-Yhdistin</a></li>
+            </ul>
+        </nav>
+        <div id="content">
+            <section id="main">
+                <h2>Yhdistä PDF-tiedostoja</h2>
+                    <p>Siirrä ensin tiedostosi projektin pdfshere -kansioon. Voit sen jälkeen valita tiedostot
+                        käyttäen tiedostovalitsinta, tai pudottamalla tiedostot ikkunaan.
+                    </p>
+                    <input type="file" id="input" name="pdfs" multiple accept=".pdf">
+                    
+                    <div id="dropbox">
+                        <p>Pudota tiedostot tähän.</p>
+                    </div>
+                    <h3 id="valitutotsikko"></h3>
+                    <ol id="valitutlista"></ol>
+                    
+                    <button id="Merge" disabled>Yhdistä valitut tiedostot</button>
+                
+                    <button id="Empty" disabled>Tyhjennä valitut tiedostot</button>
+                    <iframe id="pdf"></iframe>
+            </section>
+            
+        </div>
+        <footer>
+            <p>© Tero Asilainen</p>
+        </footer>
+    </div>
+<script src="/script/pdf.js" type="module"></script>
+</body>
+</html>

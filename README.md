@@ -16,3 +16,11 @@ Tiedoston sisältö:
 ![Näyttökuva sovelluksesta](/images/screenshots/movie.png "Näyttökuva sovelluksesta")
 
 Koodissa käytetään fetch - then -rakennetta tiedon käsittelyyn. Themoviedb-API ei suoraan tarjoa hakua satunnaiselle elokuvalle. Siispä ensin arvotaan satunnainen sivunumero (1-500), jolla haetaan lista elokuvista laskevassa suosiojärjestyksessä. API palauttaa noin sata ohjelmaa, joista vielä arvotaan ohjelma, jonka tiedot näytetään. Tämän jälkeen vielä haetaan tiedot mahdollisista suoratoistopalveluista.
+
+## PDF-Yhdistin
+
+Olen itse aiemmin tehnyt [PDF-yhdistämiseen sovelluksen](https://github.com/TeroAsilainen/PDFMerger) Python-jatkokurssin jälkimainingeissa hyödyntäen tkinteriä ja PyPDF-kirjastoa, joten ajattelin, että eihän se nyt niin vaikeaa voi olla samaa tehdä JavaScriptillä. Melko monta mutkaa matkalle sattui. Välillä ehdin jo Node.js:ääkin projektiin lisäämään, ja tuskastelemaan pari päivää tiedostojenhallinnan kanssa.
+
+Koska varsinainen Backend oli tämän projektin mitoituksen ulkopuolella, eikä tiedostoja siis lähetetä millekään palvelimelle, tulee yhdistämiseen valitut tiedostot ensin siirtää projektin ***pdfshere*** -kansioon. Sieltä tiedostot voi valita käyttäen input-elementtiä, tai vetää ja pudottaa ikkunaan.
+
+Varsinaisesta dokumenttien yhdistämisestä vastaa pdf-lib -kirjasto.
