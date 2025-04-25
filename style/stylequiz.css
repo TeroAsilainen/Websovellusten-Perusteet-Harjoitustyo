@@ -79,33 +79,14 @@ nav li a:hover {
     background-color: var(--dark-background-color);
 }
 
-h3#Katsottavissa {
-    color: var(--light-foreground-color);
-    margin-top: calc(2 * var(--general-margin));
-}
-
-ul#lista {
-    align-items: center;
-    justify-items: center;
-    padding: var(--general-padding);
-    margin: var(--general-margin);
-}
-
-ul#lista li {
-    color: var(--light-foreground-color);
-    font-size: large;
-    padding: var(--general-padding) var(--general-padding) calc(var(--general-padding)*2) calc(var(--general-padding)*4);
-    /* reset styles (optional): */
-    list-style: none;
-    margin: 0;
-    
-}
 
 div#container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
     align-items: center;
+    justify-items: center;
     margin: calc(var(--general-margin) * 1);
     background-color: var(--grey-foreground-color);
 }
@@ -113,30 +94,88 @@ div#container {
 div#content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+    text-align: center;
     padding-bottom: 15em;
-    
     width: 100%;
-    background: linear-gradient(rgba(255, 170, 0, 0.9), rgba(127, 127, 127, 0.2) 50%, rgba(0, 0, 0, 1));
-    
-    
+    min-height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 1), rgba(127, 127, 127, 0.2) 50%, rgba(255, 170, 0, 1));
+}
+
+div#content h2 {
+    flex: 100%;
+    margin: var(--general-margin);
+    color: var(--accent-color);
     
 }
 
-div#content h1 {
-    flex: 100%;
+div#content p {
+    color: var(--accent-color);
     margin: var(--general-margin);
 }
 
-div#content a {
-    color: var(--light-foreground-color);
-    font-size: x-large;
+div#valinnat {
     text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
 }
 
-div#content a:hover{
+div#valinnat {
+    min-height: calc( var(--general-padding) * 4);
+}
+
+input {
+    accent-color: var(--accent-color);
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    border: 3px solid var(--light-background-color);
+    background: var(--grey-foreground-color);
+    box-shadow: 0 0 0 1px rgba(255, 170, 0, 0.5);
+    padding: 5px;
+    cursor: pointer;
+}
+
+input:hover {
+    box-shadow: 0 0 0 1px rgba(255, 170, 0, 1);
+}
+
+input:checked {
+    background: var(--accent-color);
+    box-shadow: 0 0 0 1px rgba(255, 170, 0, 1);
+}
+
+label {
     color: var(--accent-color);
+    margin: var(--general-margin);
+    line-height: 5em; 
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin: var(--general-margin);
+}
+
+table {
+    flex: 100%;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+td {
+    margin: var(--general-margin);
+    padding: calc(var(--general-padding) / 2);
 }
 
 button {
@@ -144,6 +183,7 @@ button {
     padding: 1em;
     flex: 100%;
     width: 20vw;
+    min-height: 10vh;
     border: 5px solid var(--dark-background-color);
     border-radius: 5em;
     background-color: var(--light-background-color);
@@ -157,18 +197,58 @@ button:hover {
     cursor: pointer;
 }
 
-article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
+h3 {
+    color: var(--accent-color);
+    padding: var(--general-padding);
     margin: var(--general-margin);
 }
 
-img {
-    min-height: 600px;
-    max-height: 600px;
+h4 {
+    color: var(--accent-color);
+    min-height: calc(3 * var(--general-padding));
+}
+
+section#peli {
+    background-color: var(--grey-foreground-color);
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 15px;
     margin: var(--general-margin);
+    border: 3px solid var(--accent-color);
+    padding: var(--general-padding);
+    padding-bottom: calc(var(--general-padding) * 2);
+    min-height: calc(12 * var(--general-padding));
+    flex: 100%;
+}
+
+progress[value] {
+    -webkit-appearance:none;
+    -moz-appearance:none;        
+    appearance: none;
+    color: var(--accent-color);
+    border: 3px solid var(--accent-color);
+    border-radius: 15px;
+    background-color: var(--dark-background-color);
+    width: 100%;
+}
+
+progress[value]::-moz-progress-bar {
+    border-radius: 0px;
+    background: var(--accent-color);
+}
+
+progress[value]::-webkit-progress-bar {
+    border-radius: 15px;
+    background: var(--dark-background-color);
+}
+
+progress[value]::-webkit-progress-value {
+    border-radius: 0px;
+    background: var(--accent-color);
 }
 
 footer {
@@ -215,11 +295,16 @@ footer p {
     }
 
     button {
-        width: 45vw;
-        font-size: x-small;
-        margin: 0;
-        margin-left: calc( 2 * var(--general-margin));
-        
+        width: 70vw;
+        font-size: small;
+        margin: calc( var(--general-margin) / 4);
+        padding: calc(var(--general-padding) / 3);
+        min-height: 10vh;
+    }
+
+    section#peli{
+        padding: calc(var(--general-padding) / 2);
+        padding-bottom: var(--general-padding);
     }
 
     footer {

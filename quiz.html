@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/stylequiz.css">
+    <title>Etäisyysvisa</title>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>Teron Harjoituskokoelma</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Etusivu</a></li>
+                <li><a href="/movie.html">Katsottavaa</a></li>
+                <li><a href="/quiz.html">Etäisyysvisa</a></li>
+                <li><a href="/pdf.html">PDF-Yhdistin</a></li>
+            </ul>
+        </nav>
+        <div id="content">
+            <section>
+                <h2>Etäisyysvisa</h2>
+                <p>Tiedätkö mikä paikka on sinua lähempänä? Voit käyttää omaa sijaintiasi, 
+                    tai muuten sinut sijoitetaan Oulun ammattikorkeakoulun Linnanmaan kampukselle.
+                </p>
+                <div id="valinnat">
+                    
+                    <input type="radio" name="choice" value="location" checked="true"/><label name="vaihtoehto">Käytä sijaintia</label>
+                    
+                    
+                    <input type="radio" name="choice" value="OAMK"/><label name="vaihtoehto">Käytä OAMK</label>
+                    <article>
+                    <table hidden>
+                        <tr>
+                            <th></th>
+                            <th>Pituuspiiri</th>
+                            <th>Leveyspiiri</th>
+                        </tr>
+                        <tr>
+                            <td>Oma Sijainti:</td>
+                            <td id="pituuspiiri"></td>
+                            <td id="leveyspiiri"></td>
+                        </tr>
+                    </table>
+                    </article>
+                    
+                </div>
+            
+            
+            <section id="peli">
+                <div id="peli">
+                    <button id="aloita">Aloita</button>
+                    <h3 id="kysymys" hidden>Valitse sinua lähempi paikka:</h3>
+                    <button id="a" hidden></button>
+                    <button id="b" hidden></button>
+                    <h4 id="pisteet"></h4>
+                    <label for="progress" id="progresslabel" hidden>Visan eteneminen:</label>
+                    <progress id="progress" value="0" max="100" hidden></progress> 
+                </div>
+            </section>
+        </div>
+        <footer>
+            <p>© Tero Asilainen</p>
+        </footer>
+    </div>
+    <script src="/script/quiz.js"></script>
+</body>
+</html>

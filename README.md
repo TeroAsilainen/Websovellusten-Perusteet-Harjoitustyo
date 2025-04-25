@@ -24,3 +24,9 @@ Olen itse aiemmin tehnyt [PDF-yhdistämiseen sovelluksen](https://github.com/Ter
 Koska varsinainen Backend oli tämän projektin mitoituksen ulkopuolella, eikä tiedostoja siis lähetetä millekään palvelimelle, tulee yhdistämiseen valitut tiedostot ensin siirtää projektin ***pdfshere*** -kansioon. Sieltä tiedostot voi valita käyttäen input-elementtiä, tai vetää ja pudottaa ikkunaan.
 
 Varsinaisesta dokumenttien yhdistämisestä vastaa pdf-lib -kirjasto.
+
+## Etäisyysvisa
+
+Halusin hyödyntää sovelluksessani myös paikkatietoa jo ennen kuin se tuli vastaan kurssin harjoitustehtävissä. Päätin tehdä suhteellisen yksinkertaisen tietovisan, jossa kysymys on aina sama: Valitse itseäsi lähempi sijainti.
+
+Alkuun suunnittelin, että kysymysvaihtoehdot voitaisiin valita satunnaisesti listasta. Mutta tulin pian toisiin aatoksiin, ja mietinkin sitten lähinnä mielekkäitä kysymyksiä juuri oulunseudulta tarkasteltuna.
