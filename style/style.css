@@ -104,6 +104,7 @@ button {
     padding: var(--general-padding);
     border: 5px solid var(--dark-background-color);
     border-radius: 5em;
+    background-color: var(--grey-foreground-color);
 }
 
 
@@ -137,8 +138,24 @@ button:hover p {
 }
 
 button#Katsottavaa {
-    background: linear-gradient(rgba(200, 200, 200, 1), rgba(127, 127, 127, 0.2) 50%, rgba(0, 0, 0, 1)), url(https://image.tmdb.org/t/p/original/qJzloL8O9YHhiWBrhlPfKAtZu2I.jpg);
+    background: linear-gradient(var(--accent-color), rgba(127, 127, 127, 0.2) 50%, var(--dark-background-color)), url(https://image.tmdb.org/t/p/original/qJzloL8O9YHhiWBrhlPfKAtZu2I.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+}
+
+button#Etäisyysvisa {
+    background: linear-gradient(var(--accent-color), rgba(127, 127, 127, 0.2) 50%, var(--dark-background-color)), url(https://upload.wikimedia.org/wikipedia/commons/9/96/Robinson_projection_SW.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+button#PDF-Yhdistin {
+    background: linear-gradient(var(--accent-color), rgba(127, 127, 127, 0.2) 50%, var(--dark-background-color)), url(../images/pdf.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
 }
 
 .frontpage {

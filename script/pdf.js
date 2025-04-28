@@ -7,11 +7,12 @@ let files;
 let fileList;
 
 function fileHandle() {
-    fileList = this.files; /* now you can work with the file list */
+    fileList = this.files;
     handleFiles(fileList)
 }
 
 function handleFiles(files) {
+    // Jos tiedostoja on valittuna, lisätään otsikko ja otetaan painikkeet käyttöön
     if (files.length >= 1){
         document.getElementById('valitutotsikko').innerHTML="Valitut tiedostot:"
         document.getElementById('Empty').removeAttribute('disabled')
@@ -22,6 +23,8 @@ function handleFiles(files) {
         document.getElementById('Merge').disabled = true
         document.getElementById('valitutlista').innerHTML= ""
     }
+
+    // Lisätään tiedostonimet listaan
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
         var li = document.createElement("li");
@@ -31,6 +34,7 @@ function handleFiles(files) {
     
 }
 
+// Dropbox on tiedostojen pudotusalue
 dropbox = document.getElementById("dropbox");
 dropbox.addEventListener("dragenter", dragenter, false);
 dropbox.addEventListener("dragover", dragover, false);
@@ -41,7 +45,8 @@ function dragenter(e) {
     e.stopPropagation();
     e.preventDefault();
 }
-  
+
+// dragover ja dragleave vaihtaa taustan väriä kun tiedostoja on dropboxin päällä
 function dragover(e) {
     e.stopPropagation();
     e.preventDefault();
@@ -65,6 +70,8 @@ function drop(e) {
     handleFiles(files);
 }
 
+
+// Tyhjentää kaikki listat ja myös pdf-ikkunan
 document.getElementById('Empty').addEventListener('click', () => {
     fileList = []
     files = []
@@ -78,33 +85,31 @@ document.getElementById('Merge').addEventListener('click', () => {
 })
 
 async function mergeAllPDFs() {
-    // create an empty PDFLib object of PDFDocument to do the merging into
+    // luodaan tyhjä pdf johon tiedot lisätään
     const pdfDoc = await PDFLib.PDFDocument.create();
     
-    // iterate over all documents to merge
+    // iteroidaan valittujen tiedostojen lista
     var ul = document.getElementById("valitutlista");
     var items = ul.getElementsByTagName("li");    
     for(var i = 0; i < items.length; i++) {
 
-        // download the document
+        // tiedostot haetaan pdfshere-kansiosta nimen perusteella
         console.log("../pdfshere/" + items[i].innerHTML)
         const donorPdfBytes = await fetch("../pdfshere/" + items[i].innerHTML).then(res => res.arrayBuffer());
 
-        // load/convert the document into a PDFDocument object
         const donorPdfDoc = await PDFLib.PDFDocument.load(donorPdfBytes);
 
-        // iterate over the document's pages
+        // haetaan kaikki sivut
         const docLength = donorPdfDoc.getPageCount();
         for(var k = 0; k < docLength; k++) {
-            // extract the page to copy
             const [donorPage] = await pdfDoc.copyPages(donorPdfDoc, [k]);
-
-            // add the page to the overall merged document
             pdfDoc.addPage(donorPage);
         }
     }
     
     const pdfDataUri = await pdfDoc.saveAsBase64({ dataUri: true });
+    
+    // asetetaan pdf näkyville
     document.getElementById('pdf').src = pdfDataUri;
 
 }

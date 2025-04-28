@@ -1,8 +1,9 @@
-var usedLocation = { "nimi":'OAMK', "lon": 25.468, "lat": 65.062 };
-var distanceA, distanceB
-var oikeat = 0;
+var usedLocation = { "nimi":'OAMK', "lon": 25.468, "lat": 65.062 };     // Alkuarvo Linnanmaan kampus
+var distanceA, distanceB    // Näihin lasketaan vaihtoehtojen etäisyys
+var oikeat = 0;     // Oikeiden vastausten lukumäärä
 var kysymysindeksi = 0;
 
+// Kaikki kysymykset
 const questions =
 {0 : {
     'a': { "nimi":'Kempele', "lon": 25.504, "lat": 64.913 },
@@ -36,6 +37,7 @@ const questions =
     'b': { "nimi":'Nuuk (Grönlanti)', "lon": -51.738, "lat": 64.175 }}
 }
 
+// Tuo esille kaikki visan tarvitsemat elementit
 function showQuiz() {
     document.getElementById('pituuspiiri').innerHTML = usedLocation["lon"]
     document.getElementById('leveyspiiri').innerHTML = usedLocation["lat"]
@@ -55,20 +57,22 @@ const getLocation = () => {
     }
 }
 
+// Käyttäjä hyväksyy sijainnin käytön
 function success(position) {
             usedLocation = {"nimi":'Sijainti', "lon": position.coords.longitude.toFixed(3), "lat": position.coords.latitude.toFixed(3)}
-            showQuiz();
+            showQuiz(); // Näytä tietovisa ja ensimmäinen kysymys
             quiz(0);
 }
 
+// Käyttäjä kieltää sijainnin käytön, käytetään OAMK
 function error() {
             alert("Sijainti ei käytössä. Käytetään Linnanmaan kampusta!")
-            showQuiz();
+            showQuiz(); // Näytä tietovisa ja ensimmäinen kysymys
             quiz(0)
 }
     
 
-
+// Palauttaa etäisyyden kilometreinä linnuntietä
 function calculateDistance(lat, lon)  {
     const r = 6371; // km
     const p = Math.PI / 180;
@@ -81,6 +85,7 @@ function calculateDistance(lat, lon)  {
 }
 
 
+// Tämä päivittää kysymyksen, varmaan olisi pitänyt nimetä updateQuiz...
 function quiz(indeksi){
         document.getElementById('a').innerHTML = questions[indeksi]["a"]["nimi"]
         document.getElementById('b').innerHTML = questions[indeksi]["b"]["nimi"]
@@ -90,6 +95,8 @@ function quiz(indeksi){
         console.log(distanceB)
 }
 
+
+// Tarkistetaan vastaus
 function answer(vastaus) {
     var vastausOikein;
     if (vastaus == 'a') {
@@ -110,10 +117,13 @@ function answer(vastaus) {
     console.log('Oikeat vastaukset: ' + oikeat)
     }
     kysymysindeksi += 1;
+
+    // Päivitetään progress bar
     document.getElementById('progress').value = (kysymysindeksi / Object.keys(questions).length) * 100;
     if (kysymysindeksi < Object.keys(questions).length) {
         quiz(kysymysindeksi);
     } else {
+        // Tietovisa päättyy
         document.getElementById('a').hidden = true
         document.getElementById('b').hidden = true
         document.getElementById('kysymys').innerHTML = 'Visa päättyi'
@@ -121,6 +131,7 @@ function answer(vastaus) {
     }
 }
 
+// Painikkeen painalluksen jälkeen tarkistetaan vastaus
 document.getElementById('a').addEventListener('click', () => {
     answer('a')
 })
@@ -129,7 +140,10 @@ document.getElementById('b').addEventListener('click', () => {
     answer('b')
 })
 
+// Aloitetaan tietovisa
 document.querySelector('#aloita').addEventListener('click', () => {
+    
+    // Tarkistetaan sijainti/OAMK -valinta
     var valinta
     const valintaLista = document.getElementsByName('choice')
     valintaLista.forEach(element => {
@@ -139,6 +153,7 @@ document.querySelector('#aloita').addEventListener('click', () => {
         element.hidden = true;
     });
 
+    // Piilotetaan valinnat ja aloita-painike
     const vaihtoehtoLista = document.getElementsByName('vaihtoehto')
     vaihtoehtoLista.forEach(element => {
         element.hidden = true
@@ -146,6 +161,8 @@ document.querySelector('#aloita').addEventListener('click', () => {
 
     console.log(valinta);
     document.querySelector('#aloita').hidden = true;
+
+
     if (valinta === 'location') {
         getLocation();
         console.log(usedLocation)
@@ -153,7 +170,7 @@ document.querySelector('#aloita').addEventListener('click', () => {
     } else {
         usedLocation = { "nimi":'OAMK', "lon": 25.468, "lat": 65.062 }
         console.log(usedLocation)
-        showQuiz();
+        showQuiz(); // Näytä tietovisa ja ensimmäinen kysymys
         quiz(0);
     }
 })

@@ -94,7 +94,8 @@ ul#lista {
 ul#lista li {
     color: var(--light-foreground-color);
     font-size: large;
-    padding: var(--general-padding) var(--general-padding) calc(var(--general-padding)*2) calc(var(--general-padding)*4);
+    text-justify: center;
+    padding: var(--general-padding) var(--general-padding) calc(var(--general-padding)*1.3) calc(var(--general-padding)*3);
     /* reset styles (optional): */
     list-style: none;
     margin: 0;
