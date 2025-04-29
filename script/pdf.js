@@ -81,10 +81,13 @@ document.getElementById('Empty').addEventListener('click', () => {
 })
 
 document.getElementById('Merge').addEventListener('click', () => {
-    mergeAllPDFs()
+    mergeAllPDFs();
 })
 
 async function mergeAllPDFs() {
+    try {
+        
+    
     // luodaan tyhjä pdf johon tiedot lisätään
     const pdfDoc = await PDFLib.PDFDocument.create();
     
@@ -112,4 +115,12 @@ async function mergeAllPDFs() {
     // asetetaan pdf näkyville
     document.getElementById('pdf').src = pdfDataUri;
 
+    } catch (error) {
+        fileList = []
+        files = []
+        inputElement.value = ''
+        handleFiles(files)
+        document.getElementById('pdf').src = ""
+        alert("Jotain meni vikaan. Yritä uudelleen.")
+}  
 }

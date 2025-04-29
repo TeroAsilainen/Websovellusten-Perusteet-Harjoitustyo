@@ -63,7 +63,7 @@ function getSomethingToWatch(programType) {
         }
     };
       
-    fetch('https://api.themoviedb.org/3/discover/' + programType + '?include_adult=false&include_video=false&language=en-US&page='+ sivu + '&sort_by=popularity.desc&without_keywords=155477%7C321739%7C1664', options)
+    fetch('https://api.themoviedb.org/3/discover/' + programType + '?include_adult=false&include_video=false&language=en-US&page='+ sivu + '&sort_by=popularity.desc&without_keywords=155477%7C321739', options)
         .then(res => res.json())
         .then(json => {
             const elokuva = json["results"][parseInt(Math.random() * json["results"].length)]; //valitaan satunnainen elokuva tuloksista
